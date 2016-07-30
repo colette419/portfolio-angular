@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 message = '';
   constructor() {
     var text='Hello visitor! Please check out the information below to get to know a little more about me...';
-    this.message='';
+  
     Observable.interval(100)
               .take(text.length).map((x) => x+1)
               .subscribe((x) => {

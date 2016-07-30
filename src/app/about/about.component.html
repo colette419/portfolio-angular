@@ -1,7 +1,8 @@
-<div (click)="descHide()" id="about-lab">
-	<p>+about</p>
+<div (click)="itsHidden=!itsHidden;" id="about-lab">
+	<p *ngIf= "itsHidden===false">-about</p>
+	<p *ngIf="itsHidden===true">+about</p>
 </div>
-<div animate-box #box="ab" class="text-padding" id="about-des">
+<div class="text-padding" id="about-des" [ngClass]="{'my-class': itsHidden }">
     <img id="headshot" src="../resources/pics/me.jpg" alt="Colette">
     <p>I am a lifelong New Yorker interested in NodeJS and everything Javascript. After a couple years working at an EdTech start-up in New York, I'm now looking for my next project in Amsterdam.
     </p>

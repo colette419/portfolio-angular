@@ -1,0 +1,8 @@
+<div id="contact-lab" (click)="itsHidden=!itsHidden;">
+	<p *ngIf= "itsHidden===false">-contact</p>
+	<p *ngIf="itsHidden===true">+contact</p>
+</div>
+<div class="text-padding" id="contact-des" [ngClass]="{'my-class': itsHidden }">
+    <p>email: <a href="mailto:colette419@gmail.com">colette419@gmail.com </a> </p>
+    <p>tel/WhatsApp: +1-917-538-0221</p>
+</div>

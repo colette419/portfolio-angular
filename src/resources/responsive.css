@@ -1,0 +1,20 @@
+@media screen and (min-width: 940px) {
+
+.portfolio-des {
+display: inline-block;
+}
+
+
+.responsive-column-1 {
+  width: 50%;
+  float: left;
+}
+
+.responsive-column-2 {
+  width: 50%;
+  float: left;
+}
+
+ }
+
+  
