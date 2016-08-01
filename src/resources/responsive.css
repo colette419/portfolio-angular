@@ -17,4 +17,17 @@ display: inline-block;
 
  }
 
+ @media screen and (min-width: 700px) {
+
+ app-header {
+	width: 70%;
+}
+
+app-weather-widget {
+	width: 25%;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+}
+
   
