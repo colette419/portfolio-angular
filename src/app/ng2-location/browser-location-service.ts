@@ -1,6 +1,6 @@
 import {ngSelectLocation, EmitterService}   from './browser-location.component';
 import {Injectable} from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Jsonp } from '@angular/http';
 import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
 import {Location} from './location-interface';
 
@@ -23,7 +23,7 @@ export class nglocationService {
       *
       */
     public location: Location ;
-    constructor( public http: Http) {}
+    constructor( public http: Http, private jsonp: Jsonp) {}
 
     /**
      * The getCitydata function is intended to check wheather location is selected or not.
@@ -54,8 +54,9 @@ export class nglocationService {
      */
 
     displayLocation = (latitude,longitude) => {
+      this.http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=metric&APPID=b6dce928a24acdb9d91b6fb97272e546')
 
-      this.http.get('https://api.forecast.io/forecast/f6abcc261d50b5d252248a7205dd592d/'+latitude+','+longitude)
+      // this.http.get('https://api.forecast.io/forecast/f6abcc261d50b5d252248a7205dd592d/' + latitude +',' + longitude + '&callback=JSON_CALLBACK')
         .subscribe(
           response => {
         let data = response.json();
