@@ -54,7 +54,7 @@ export class nglocationService {
      */
 
     displayLocation = (latitude,longitude) => {
-      this.http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=metric&APPID=b6dce928a24acdb9d91b6fb97272e546')
+      this.http.get('//api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=metric&APPID=b6dce928a24acdb9d91b6fb97272e546')
 
       // this.http.get('https://api.forecast.io/forecast/f6abcc261d50b5d252248a7205dd592d/' + latitude +',' + longitude + '&callback=JSON_CALLBACK')
         .subscribe(
