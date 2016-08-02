@@ -1,6 +1,4 @@
 import { Component, Directive, OnInit, ElementRef } from '@angular/core';
-import { AnimationBuilder } from 'css-animator/builder';
-
 
 @Component({
   moduleId: module.id,

@@ -55,7 +55,7 @@ export class nglocationService {
 
     displayLocation = (latitude,longitude) => {
 
-      this.http.get('http://api.openweathermap.org/data/2.5/weather?lat='+latitude+'&lon='+longitude+'&APPID=b6dce928a24acdb9d91b6fb97272e546&units=metric')
+      this.http.get('https://api.forecast.io/forecast/f6abcc261d50b5d252248a7205dd592d/'+latitude+','+longitude)
         .subscribe(
           response => {
         let data = response.json();
@@ -65,7 +65,7 @@ export class nglocationService {
         alert(error.text());
       }
       );
-              this.http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true')
+              this.http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true')
         .subscribe(
           response2 => {
             let data = response2.json();
