@@ -54,35 +54,35 @@ export class nglocationService {
      */
 
     displayLocation = (latitude,longitude) => {
-      this.http.get('//api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=metric&APPID=b6dce928a24acdb9d91b6fb97272e546')
-
-      // this.http.get('https://api.forecast.io/forecast/f6abcc261d50b5d252248a7205dd592d/' + latitude +',' + longitude + '&callback=JSON_CALLBACK')
+      // this.http.get('//api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=metric&APPID=b6dce928a24acdb9d91b6fb97272e546')
+      this.http.get('https://api.wunderground.com/api/9754017167095bc0/conditions/q/'+ latitude + ',' + longitude +'.json')
         .subscribe(
           response => {
         let data = response.json();
+        console.log(data.current_observation.temp_c);
           EmitterService.get("tempService").emit(data);
       },
         error => {
         alert(error.text());
       }
       );
-              this.http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true')
-        .subscribe(
-          response2 => {
-            let data = response2.json();
-            let city = data.results[0].address_components.reduce((city, value) => {
-                     if (value.types[0] == "locality") {
-                           city = value.long_name;
-                           location['city'] = city;
-                      }
-                     if (value.types[0] == "postal_code") {
-                            let postal_code = value.long_name;
-                            location['postal_code'] = postal_code;
-                        }
-                    return city;
-                    }, ''); 
-            EmitterService.get("locationService").emit(city);
-          })
+        //       this.http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true')
+        // .subscribe(
+        //   response2 => {
+        //     let data = response2.json();
+        //     let city = data.results[0].address_components.reduce((city, value) => {
+        //              if (value.types[0] == "locality") {
+        //                    city = value.long_name;
+        //                    location['city'] = city;
+        //               }
+        //              if (value.types[0] == "postal_code") {
+        //                     let postal_code = value.long_name;
+        //                     location['postal_code'] = postal_code;
+        //                 }
+        //             return city;
+        //             }, ''); 
+        //     EmitterService.get("locationService").emit(city);
+        //   })
         };
 
       //         if(response.status == 200){

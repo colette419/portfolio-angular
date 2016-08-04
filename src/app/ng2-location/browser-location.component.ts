@@ -55,8 +55,8 @@ export class EmitterService {
   selector: 'ngLocation',
   template:
   `
-  <div>
-    <p>Your Location: {{userLocation}}</p>
+   <div>
+    <p>Your Location: {{weatherLocation}}</p>
   </div>
   <div>
     <p> Local temp: {{selectedTemp}} °C</p>
@@ -65,7 +65,7 @@ export class EmitterService {
     <p> Local weather: {{selectedDescription}} </p>
   </div>
   <div class="centered" *ngIf="selectedIcon != null">
-  <img src="http://openweathermap.org/img/w/{{selectedIcon}}.png" alt="Description"/>
+  <img src="{{selectedIcon}}" alt="Description"/>
   </div>
     <div *ngIf="selectedIcon == null">
   <p>Icon loading...</p>
@@ -94,19 +94,21 @@ export class ngSelectLocation implements OnInit {
   public selectedTemp: string;
   public selectedDescription: string;
   public selectedIcon: string;
-  public userLocation: string;
+  // public userLocation: string;
+  public weatherLocation: string;
 
 
   constructor(private _ngLocation: nglocationService) {
     _ngLocation.getCitydata();
     EmitterService.get("tempService").subscribe(data =>{
-       this.selectedTemp = data.main.temp;
-       this.selectedDescription = data.weather[0].description;
-       this.selectedIcon = data.weather[0].icon;
+       this.selectedTemp = data.current_observation.temp_c;
+       this.selectedDescription = data.current_observation.weather;
+       this.selectedIcon = data.current_observation.icon_url;
+       this.weatherLocation = data.current_observation.display_location.city;
     });
-    EmitterService.get("locationService").subscribe(data2 =>{
-       this.userLocation = data2;
-    });
+    // EmitterService.get("locationService").subscribe(data2 =>{
+    //    this.userLocation = data2;
+    // });
   }
 
   
