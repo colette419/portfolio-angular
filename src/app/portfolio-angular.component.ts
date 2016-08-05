@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { ResumeComponent } from './resume/resume.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -14,7 +15,7 @@ import { ContactComponent } from './contact/contact.component';
   selector: 'portfolio-angular-app',
   templateUrl: 'portfolio-angular.component.html',
   styleUrls: ['portfolio-angular.component.css'],
-  directives: [HeaderComponent, WeatherWidgetComponent, AboutComponent, ResumeComponent, PortfolioComponent, ContactComponent]
+  directives: [HeaderComponent, WeatherWidgetComponent, AboutComponent, ResumeComponent, PortfolioComponent, ContactComponent, FooterComponent]
 })
 export class PortfolioAngularAppComponent {
   title = 'portfolio-angular works!';
