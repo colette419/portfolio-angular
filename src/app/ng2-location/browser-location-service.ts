@@ -59,13 +59,35 @@ export class nglocationService {
         .subscribe(
           response => {
         let data = response.json();
-        console.log(data.current_observation.temp_c);
           EmitterService.get("tempService").emit(data);
       },
         error => {
         alert(error.text());
       }
       );
+        };
+
+
+
+    displayVacation = () => {
+            this.http.get('https://api.wunderground.com/api/9754017167095bc0/conditions/q/PF/Tahiti.json')
+        .subscribe(
+          response => {
+        let data = response.json();
+          EmitterService.get("tempService").emit(data);
+      },
+        error => {
+        alert(error.text());
+      }
+      );
+        };
+
+
+
+
+
+
+
         //       this.http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true')
         // .subscribe(
         //   response2 => {
@@ -83,7 +105,7 @@ export class nglocationService {
         //             }, ''); 
         //     EmitterService.get("locationService").emit(city);
         //   })
-        };
+        // };
 
       //         if(response.status == 200){
       //             let data = response.json();
@@ -178,6 +200,7 @@ export class nglocationService {
                 break;
             }
             console.log(errorMessage);
+            this.displayVacation(); 
           };
 
       options = {

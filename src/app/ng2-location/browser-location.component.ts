@@ -55,9 +55,24 @@ export class EmitterService {
   selector: 'ngLocation',
   template:
   `
-   <div>
-    <p>Your Location: {{weatherLocation}}</p>
+  <div *ngIf="weatherLocation == 'Tahiti'">
+    <p>Since your geolocation is not working (or turned off), please enjoy viewing the current weather in Tahiti:</p>
+    <div>
+      <p> Temp: {{selectedTemp}} °C</p>
+    </div>
+    <div class="inline-div">
+      <p> Weather: {{selectedDescription}} </p>
+    </div>
+    <div class="centered" *ngIf="selectedIcon != null">
+      <img src="{{selectedIcon}}" alt="Description"/>
+    </div>
+    <div *ngIf="selectedIcon == null">
+      <p>Icon loading...</p>
+    </div>
+    <img id="wulogo" src="https://icons.wxug.com/logos/JPG/wundergroundLogo_4c_horz.jpg">
   </div>
+  <div *ngIf="weatherLocation != 'Tahiti'">
+    <p>Your Location: {{weatherLocation}}</p>
   <div>
     <p> Local temp: {{selectedTemp}} °C</p>
   </div>
@@ -65,10 +80,12 @@ export class EmitterService {
     <p> Local weather: {{selectedDescription}} </p>
   </div>
   <div class="centered" *ngIf="selectedIcon != null">
-  <img src="{{selectedIcon}}" alt="Description"/>
+    <img src="{{selectedIcon}}" alt="Description"/>
   </div>
     <div *ngIf="selectedIcon == null">
-  <p>Icon loading...</p>
+      <p>Icon loading...</p>
+    </div>
+  <img id="wulogo" src="https://icons.wxug.com/logos/JPG/wundergroundLogo_4c_horz.jpg">
   </div>
   `,
   styleUrls: ['browser-location.component.css'],

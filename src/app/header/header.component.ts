@@ -11,17 +11,17 @@ import  { Observable } from "rxjs/Rx";
 export class HeaderComponent implements OnInit {
 
  
-message = '';
-  constructor() {
-    var text='Hello visitor! Please check out the information below to get to know a little more about me...';
+// message = '';
+//   constructor() {
+//     var text='Hello visitor! Please check out the information below to get to know a little more about me...';
   
-    Observable.interval(100)
-              .take(text.length).map((x) => x+1)
-              .subscribe((x) => {
-                this.message += text[x-1];
-              });
+//     Observable.interval(100)
+//               .take(text.length).map((x) => x+1)
+//               .subscribe((x) => {
+//                 this.message += text[x-1];
+//               });
 
-  }
+//   }
 
 
     // ticks = 0;
