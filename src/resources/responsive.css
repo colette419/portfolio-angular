@@ -2,15 +2,16 @@
 
 .portfolio-des {
 display: inline-block;
+width: 100%;
 }
 
 
-.responsive-column-1 {
+#responsive-column-1 {
   width: 50%;
   float: left;
 }
 
-.responsive-column-2 {
+#responsive-column-2 {
   width: 50%;
   float: left;
 }

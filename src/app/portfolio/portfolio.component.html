@@ -1,9 +1,9 @@
 <div id="portfolio-lab" (click)="itsHidden=!itsHidden;">
-	<p *ngIf= "itsHidden===false">-my work</p>
-	<p *ngIf="itsHidden===true">+my work</p>
+    <p *ngIf="itsHidden===false">-my work</p>
+    <p *ngIf="itsHidden===true">+my work</p>
 </div>
-<div class="text-padding" class="portfolio-des" [ngClass]="{'my-class': itsHidden }" >
-    <div class="responsive-column-1">
+<div class="text-padding" class="portfolio-des" [ngClass]="{'my-class': itsHidden }">
+    <div id="responsive-column-1">
         <div id="this-little-blog">
             <h3>This Little Blog</h3>
             <div class="ss-div">
@@ -23,7 +23,7 @@
             </ul>
         </div>
     </div>
-    <div class="responsive-column-2">
+    <div id="responsive-column-2">
         <div id="basketball-website">
             <h3>Coming next...</h3>
             <p>Basketball League Website</p>
