@@ -8,7 +8,6 @@ import { ngSelectLocation, EmitterService } from '../ng2-location/browser-locati
   template: `
   <ngLocation></ngLocation>
   `,
-  styleUrls: ['weather-widget.component.css'],
   directives: [ngSelectLocation],
   providers: [EmitterService]
 })
