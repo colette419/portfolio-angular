@@ -57,9 +57,16 @@ export class EmitterService {
   `
   <div *ngIf="weatherLocation == 'Tahiti'">
     <p>Since your geolocation is not working (or turned off), please enjoy viewing the current weather in Tahiti:</p>
-    <div>
-      <p> Temp: {{selectedTemp}} °C</p>
-    </div>
+    
+  <div *ngIf="tempUnits == 'Celsius'">
+    <p> Local temp: {{selectedTempC}} <span class="selectedTemp">°C</span>/<span class="unselectedTemp" (click)="tempUnits='Fahrenheit'" >°F</span></p>
+  </div>
+
+  <div *ngIf="tempUnits == 'Fahrenheit'">
+    <p> Local temp: {{selectedTempF}} <span class="unselectedTemp" (click)="tempUnits='Celsius'">°C</span>/<span class="selectedTemp">°F</span></p>
+  </div>
+
+
     <div class="inline-div">
       <p> Weather: {{selectedDescription}} </p>
     </div>
@@ -73,9 +80,17 @@ export class EmitterService {
   </div>
   <div *ngIf="weatherLocation != 'Tahiti'">
     <p>Your Location: {{weatherLocation}}</p>
-  <div>
-    <p> Local temp: {{selectedTemp}} °C</p>
+  
+
+  <div *ngIf="tempUnits == 'Celsius'">
+    <p> Local temp: {{selectedTempC}} <span class="selectedTemp">°C</span>/<span class="unselectedTemp" (click)="tempUnits='Fahrenheit'" >°F</span></p>
   </div>
+
+  <div *ngIf="tempUnits == 'Fahrenheit'">
+    <p> Local temp: {{selectedTempF}} <span class="unselectedTemp" (click)="tempUnits='Celsius'">°C</span>/<span class="selectedTemp">°F</span></p>
+  </div>
+  
+
   <div class="inline-div">
     <p> Local weather: {{selectedDescription}} </p>
   </div>
@@ -108,17 +123,21 @@ export class ngSelectLocation implements OnInit {
       * @type {string}
       *
       */
-  public selectedTemp: string;
+  public selectedTempC: string;
+  public selectedTempF: string;
   public selectedDescription: string;
   public selectedIcon: string;
   // public userLocation: string;
   public weatherLocation: string;
 
+  tempUnits:string = 'Celsius';
+
 
   constructor(private _ngLocation: nglocationService) {
     _ngLocation.getCitydata();
     EmitterService.get("tempService").subscribe(data =>{
-       this.selectedTemp = data.current_observation.temp_c;
+       this.selectedTempC = data.current_observation.temp_c;
+       this.selectedTempF = data.current_observation.temp_f;
        this.selectedDescription = data.current_observation.weather;
        this.selectedIcon = data.current_observation.icon_url;
        this.weatherLocation = data.current_observation.display_location.city;
