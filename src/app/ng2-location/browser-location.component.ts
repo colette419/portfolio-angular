@@ -78,6 +78,7 @@ export class EmitterService {
     </div>
     <img id="wulogo" src="https://icons.wxug.com/logos/JPG/wundergroundLogo_4c_horz.jpg">
   </div>
+  
   <div *ngIf="weatherLocation != 'Tahiti'">
     <p>Your Location: {{weatherLocation}}</p>
   
