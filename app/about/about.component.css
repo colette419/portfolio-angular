@@ -1,0 +1,7 @@
+.my-class {
+	 overflow: hidden; 
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 0;
+    border-width: 0 1px;
+}

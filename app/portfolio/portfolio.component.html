@@ -1,0 +1,36 @@
+<div id="portfolio-lab" (click)="itsHidden=!itsHidden;">
+    <p *ngIf="itsHidden===false">-my work</p>
+    <p *ngIf="itsHidden===true">+my work</p>
+</div>
+<div class="text-padding" class="portfolio-des" [ngClass]="{'my-class': itsHidden }">
+    <div id="responsive-column-1">
+        <div id="this-little-blog">
+            <h3>This Little Blog</h3>
+            <div class="ss-div">
+                <a href="http://blog-app.biervliet-schranz.com/">
+                    <img id="this-little-blog-ss" src="./resources/pics/blog-app-ss.png" alt="Blog App Screenshot">
+                </a>
+            </div>
+            <h4> Featuring... </h4>
+            <ul>
+                <li>Node.js</li>
+                <li>Jade</li>
+                <li>Ajax Post Requests</li>
+                <li>Password Reset Functionality</li>
+                <li>Postgres Database</li>
+                <li>Javascript and server-side Validation</li>
+                <li>Sass</li>
+            </ul>
+        </div>
+    </div>
+    <div id="responsive-column-2">
+        <div id="basketball-website">
+            <h3>Coming next...</h3>
+            <p>Basketball League Website</p>
+        </div>
+        <div id="cbs-github">
+            <h3>For more projects</h3>
+            <p>Here is a link to my <a href="https://github.com/colette419">github!</a>
+        </div>
+    </div>
+</div>

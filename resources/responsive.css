@@ -1,0 +1,34 @@
+@media screen and (min-width: 940px) {
+
+.portfolio-des {
+display: inline-block;
+width: 100%;
+}
+
+
+#responsive-column-1 {
+  width: 50%;
+  float: left;
+}
+
+#responsive-column-2 {
+  width: 50%;
+  float: left;
+}
+
+ }
+
+ @media screen and (min-width: 700px) {
+
+ app-header {
+	width: 70%;
+}
+
+app-weather-widget {
+	width: 25%;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+}
+
+  

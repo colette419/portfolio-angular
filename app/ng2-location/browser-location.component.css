@@ -1,0 +1,22 @@
+.centered {
+	margin: auto;
+	text-align: center;
+}
+
+img {
+	margin: auto;
+}
+
+#wulogo {
+	width: 90px;
+}
+
+.selectedTemp {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.unselectedTemp:hover {
+	cursor: pointer;
+	color: lightgray;
+}
